@@ -1,0 +1,60 @@
+name: QA
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches:
+      - canary
+
+concurrency:
+  group: tests-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.14.2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-
+
+      - name: Install dependencies
+        run: pnpm --version && pnpm install --frozen-lockfile
+
+      - name: Check prettier
+        run: pnpm prettier --check .
+
+      - name: Generate
+        run: pnpm generate
+
+      - name: Test
+        run: pnpm test:ci
+        env:
+          # Secrets
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          TEST_SALEOR_APP_TOKEN: ${{ secrets.TEST_SALEOR_APP_TOKEN }}
+          # Variables
+          TEST_SALEOR_API_URL: ${{ vars.TEST_SALEOR_API_URL }}
+          TEST_SALEOR_APP_ID: ${{ vars.TEST_SALEOR_APP_ID }}
+          TEST_SALEOR_JWKS: ${{ vars.TEST_SALEOR_JWKS }}
+          TEST_SEQURA_API_URL: ${{ vars.TEST_SEQURA_API_URL }} # https://sandbox.sequrapi.com/
+          APP_API_BASE_URL: https://sequra.saleor.app
+
+      - name: Dependency cruiser
+        if: ${{ github.event_name != 'push' }}
+        run: pnpm exec dependency-cruiser src
