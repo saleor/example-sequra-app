@@ -1,4 +1,4 @@
-# seQura app
+# Example seQura App
 
 This app integrates Saleor with [seQura](https://en.sequra.com/) payment gateway.
 
