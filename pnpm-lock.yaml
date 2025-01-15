@@ -61,7 +61,7 @@ dependencies:
     version: 1.0.1
   '@vitejs/plugin-react':
     specifier: 4.0.4
-    version: 4.0.4(vite@4.4.9)
+    version: 4.0.4(vite@4.5.5)
   ajv:
     specifier: 8.12.0
     version: 8.12.0
@@ -117,8 +117,8 @@ dependencies:
     specifier: 0.6.2
     version: 0.6.2
   vite:
-    specifier: 4.4.9
-    version: 4.4.9(@types/node@20.12.7)
+    specifier: 4.5.5
+    version: 4.5.5(@types/node@20.12.7)
   zod:
     specifier: 3.22.2
     version: 3.22.2
@@ -4726,7 +4726,7 @@ packages:
       '@upstash/redis': 1.25.1
     dev: false
 
-  /@vitejs/plugin-react@4.0.4(vite@4.4.9):
+  /@vitejs/plugin-react@4.0.4(vite@4.5.5):
     resolution: {integrity: sha512-7wU921ABnNYkETiMaZy7XqpueMnpu5VxvVps13MjmCo+utBdD79sZzrApHawHtVX66cCJQQTXFcjH0y9dSUK8g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -4736,7 +4736,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
       react-refresh: 0.14.2
-      vite: 4.4.9(@types/node@20.12.7)
+      vite: 4.5.5(@types/node@20.12.7)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -9631,8 +9631,8 @@ packages:
       - terser
     dev: true
 
-  /vite@4.4.9(@types/node@20.12.7):
-    resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
+  /vite@4.5.5(@types/node@20.12.7):
+    resolution: {integrity: sha512-ifW3Lb2sMdX+WU91s3R0FyQlAyLxOzCSCP37ujw0+r5POeHPwe6udWVIElKQq8gk3t7b8rkmvqC6IHBpCff4GQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
