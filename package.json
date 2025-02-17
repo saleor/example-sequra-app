@@ -44,7 +44,7 @@
     "eslint-plugin-node": "11.1.0",
     "graphql": "16.8.0",
     "graphql-tag": "2.12.6",
-    "jose": "4.14.6",
+    "jose": "5.10.0",
     "lodash-es": "4.17.21",
     "modern-errors": "6.0.0",
     "modern-errors-serialize": "5.0.0",
