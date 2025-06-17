@@ -1,5 +1,8 @@
 # Example seQura App
 
+> [!WARNING]
+> This repository is not longer maintained - go to https://github.com/saleor/examples for Saleor examples
+
 This app integrates Saleor with [seQura](https://en.sequra.com/) payment gateway.
 
 Required Saleor version: **3.16**
